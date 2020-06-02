@@ -1,0 +1,1 @@
+The post [Student perspective: The importance of data for the future of business and practical tips for your next pitch](https://medium.com/@lmporras98/the-future-of-business-4f85935919d3#new_tab) appeared first on [UC Berkeley Sutardja Center](http://scet.berkeley.edu).
