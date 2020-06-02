@@ -64,7 +64,7 @@ const sourceFB = (_event, context, callback) => {
                 Promise.all(filePromises)
                   .then(files => {
                     files.forEach((file, i)=> {
-                      filesToPush.push({ content: file.toString(), path: `src/data/rss/test-${i}.md` })
+                      filesToPush.push({ content: file.toString(), path: `src/data/rss/test-fb-${i}.md` })
                     })
                 });
 
