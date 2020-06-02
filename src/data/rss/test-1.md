@@ -1,1 +1,1 @@
-The post [COVID-19 is the biggest driver of digital transformation yet](https://timesofindia.indiatimes.com/blogs/voices/covid-19-is-the-biggest-driver-of-digital-transformation-yet/) appeared first on [UC Berkeley Sutardja Center](http://scet.berkeley.edu).
+Calling all questers! IT Quest closes in 48 hours! You have till 12:00 A.M. on the morning of the 25th of August to make it or break it (break the website, that is). Don't stop the struggle! Toil and trouble, Team TechVista
