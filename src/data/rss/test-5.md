@@ -1,0 +1,1 @@
+Hello, questers! We see a lot of you are struggling with question nine, so we're here to give you a hand! We unfortunately can't give you the answer, but we would suggest buying a tux. (We're told it looks dashing). Toil and trouble! Team TechVista

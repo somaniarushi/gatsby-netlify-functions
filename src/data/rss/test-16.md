@@ -1,0 +1,1 @@
+Hello questers! Hope you're enjoying the quiz! And it's about to get even better, because we're here to help out. Which question do you want an additional hint to? Comment below! Compete at www.thetechvista.in or drop us a message! Toil and trouble, Team TechVista

@@ -1,0 +1,1 @@
+Greetings, questers! We're amazed at how question eight has seemingly trumped everybody! So we're here to help out with hints! Well, here it is: think technology. And the name of every version of that technology, for there may be one that was more apt. That's it for now, hope this helps! Toil and trouble, Team TechVista

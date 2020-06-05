@@ -1,0 +1,1 @@
+Greetings, questers! We come bearing a hint for Question 34, and it's in the form of a rephrasing! Here's the new version: August and John walked and dodged respectively. Toil and trouble! Team TechVista
