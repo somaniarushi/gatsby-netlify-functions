@@ -4,25 +4,17 @@
 
 // Note that `netlify-lambda` only locally emulates Netlify Functions, while `netlify-identity-widget` interacts with a real Netlify Identity instance. This means that `netlify-lambda` doesn't support Netlify Functions + Netlify Identity integration.
 
-// const axios = require("axios");
 var vfile = require('vfile')
-// var report = require('vfile-reporter')
 var unified = require('unified')
 var parseRehype = require('rehype-parse')
 var rehype2remark = require('rehype-remark')
+const config = require("../../config");
 var stringify = require('remark-stringify')
-// const config = require("../config");
-var graph = require('fbgraph');
 
-const Parser = require("rss-parser");
-
-const rssParser = new Parser();
 const { GithubAPI } = require("./github");
 
 const {FB, FacebookApiException} = require('fb');
-FB.setAccessToken('') //Re-input
-
-var feed;
+FB.setAccessToken(config.apikey) 
 
 /**
  * Pulls in RSS content in HTML form, transforms it into Markdown, and pushes it to Github.
@@ -36,18 +28,20 @@ const sourceFB = (_event, context, callback) => {
     // TODO: Look into using the context object for auth.
     // const { identity, user } = context.clientContext;
     let gh = new GithubAPI({
-      username: '', //Reinput
-      password: '',
+      username: config.username,
+      password: config.password,
     });
 
     gh.setRepo('somaniarushi', 'gatsby-netlify-functions');
     gh.setBranch('master')
       .then(() => {
-        FB.api(
-            '/techvista18',
-            'GET',
-            {"fields":"feed"},
-            function(response) {
+        FB.api('', 'post', {
+          batch: [
+              { method: 'get', relative_url: '/me/events'},
+              {method: 'get', relative_url: '/techvista18/events'},
+            ]
+          },
+        function(response) {
                 
                 const processor = unified()
                 .use(parseRehype, {emitParseErrors: true, duplicateAttribute: false})
@@ -57,14 +51,14 @@ const sourceFB = (_event, context, callback) => {
                 const filesToPush = [];
                 const filePromises = [];
 
-                response.feed.data.forEach(item => {
-                    filePromises.push(processor.process(vfile(Buffer.from(item.message))));
-                  })
+                response.forEach(item => {
+                    filePromises.push(processor.process(vfile(Buffer.from(item.body))));
+                  });
                   
                 Promise.all(filePromises)
                   .then(files => {
                     files.forEach((file, i)=> {
-                      filesToPush.push({ content: file.toString(), path: `src/data/rss/test-fb-${i}.md` })
+                      filesToPush.push({ content: formatter(file), path: `src/data/fb/test-fb-${i}.md` })
                     })
                 });
 
@@ -72,7 +66,7 @@ const sourceFB = (_event, context, callback) => {
                 .then(() => {
                   callback(null, {
                     statusCode: 200,
-                    body: JSON.stringify(response.feed.data),
+                    body: JSON.stringify(response),
                   })
                 })
             })
@@ -82,14 +76,10 @@ const sourceFB = (_event, context, callback) => {
                     
             }
         };
-           
 
-           
-           
-            
-           
-
-              
-
+const formatter = (file) => {
+  return file.toString();
+}
  
 module.exports.handler = sourceFB;
+
